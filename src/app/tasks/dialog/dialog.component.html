@@ -1,0 +1,14 @@
+<h1 matDialogTitle class="dialog-title">Nova Tarefa</h1>
+
+<mat-dialog-content class="mat-typography">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput minlength="5" required [(ngModel)]="task.title" #titleControl="ngModel" (keyup.enter)="save()">
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="row-buttons">
+    <button mat-stroked-button mat-dialog-close>Cancelar</button>
+    <button mat-flat-button color="accent" [disabled]="titleControl.invalid" (click)="save()">Salvar</button>
+</mat-dialog-actions>
