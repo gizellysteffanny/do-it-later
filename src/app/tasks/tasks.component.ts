@@ -30,6 +30,15 @@ export class TasksComponent implements OnInit {
       .catch(error => console.log(error));
   }
 
+  delete() {
+    const confirm = window.confirm('Deseja remover essa tarefa? ');
+    if (confirm) {
+      this.service.delete(this.selectedTask)
+      .then(() => console.log('Tarefa removida com sucesso!'))
+      .catch(error => console.log(error));
+    }
+  }
+
   showDialog(task?: Task) {
     const config: MatDialogConfig<any> = (task) ? {data: {task}} : null;
     this.dialog.open(DialogComponent, config);
