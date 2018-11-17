@@ -23,8 +23,11 @@ export class TasksComponent implements OnInit {
     this.tasks$ = this.service.tasks.valueChanges();
   }
 
-  onPeformTask(event) {
-    console.log(event);
+  onPeformTask(task: Task) {
+    task.done = !task.done;
+    this.service.update(task)
+      .then(() => console.log('Tarefa atualizada com sucesso!'))
+      .catch(error => console.log(error));
   }
 
   showDialog() {
