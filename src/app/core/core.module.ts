@@ -13,7 +13,6 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
   ],
   exports: [
     ToolbarComponent,
-    MaterialModule,
     TaskModule
   ]
 })

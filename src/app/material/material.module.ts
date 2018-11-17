@@ -8,7 +8,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @NgModule({
   imports: [
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatLineModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatLineModule,
