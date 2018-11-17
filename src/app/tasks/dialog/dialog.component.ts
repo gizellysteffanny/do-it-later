@@ -27,6 +27,7 @@ export class DialogComponent implements OnInit {
   }
 
   save() {
+    this.dialogRef.close();
     const operation: Promise<void> =
     (!this.data) ?
       this.service.create(this.task) :
@@ -34,7 +35,6 @@ export class DialogComponent implements OnInit {
 
     operation.then(() => {
       console.log('Tarefa salva com sucesso!');
-      this.dialogRef.close();
     }).catch(error => console.log(error));
   }
 
