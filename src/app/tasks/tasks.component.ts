@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Observable } from 'rxjs';
 
 import { Task } from './task.model';
@@ -30,8 +30,9 @@ export class TasksComponent implements OnInit {
       .catch(error => console.log(error));
   }
 
-  showDialog() {
-    this.dialog.open(DialogComponent);
+  showDialog(task?: Task) {
+    const config: MatDialogConfig<any> = (task) ? {data: {task}} : null;
+    this.dialog.open(DialogComponent, config);
   }
 
 }
