@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Task } from './task.model';
+import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -9,14 +11,13 @@ import { Task } from './task.model';
 })
 export class TasksComponent implements OnInit {
 
-  tasks: Task[] = [
-    {uuid: '', title: 'Ir ao shopping', done: false}
-  ];
+  tasks$: Observable<Task[]>;
   selectedTask: Task;
 
-  constructor() { }
+  constructor(private service: TaskService) { }
 
   ngOnInit() {
+    this.tasks$ = this.service.tasks.valueChanges();
   }
 
   onPeformTask(event) {

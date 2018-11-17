@@ -1,5 +1,5 @@
 <mat-list dense>
-  <app-task-item *ngFor="let task of tasks" [task]="task"
+  <app-task-item *ngFor="let task of tasks$ | async" [task]="task"
   (peformTask)="onPeformTask($event)"
   (selectTask)="selectedTask=$event">
   </app-task-item>
