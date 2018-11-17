@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 
 import { MaterialModule } from '../material/material.module';
+import { TaskModule } from '../tasks/task.module';
 
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @NgModule({
-  declarations: [
-    ToolbarComponent
-  ],
+  declarations: [ToolbarComponent],
   imports: [
-    MaterialModule
+    MaterialModule,
+    TaskModule
   ],
   exports: [
-    ToolbarComponent
+    ToolbarComponent,
+    MaterialModule,
+    TaskModule
   ]
 })
 
